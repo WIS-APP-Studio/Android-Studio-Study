@@ -24,48 +24,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6707c7bb-a828-4197-a53b-652fdf19850e" name="디폴트 변경 목록" comment="">
-      <change afterPath="$PROJECT_DIR$/HelloWorld/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/androidTest/java/com/example/helloworld/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/java/com/example/helloworld/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/app/src/test/java/com/example/helloworld/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloWorld/settings.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="6707c7bb-a828-4197-a53b-652fdf19850e" name="디폴트 변경 목록" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.219.101:5555]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
