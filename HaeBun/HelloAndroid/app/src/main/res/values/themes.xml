@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Design.NoActionBar"> // 스타일 이름
+        <item name="windowNoTitle">true</item> // 앱 바 설정(true: 안 보이기, false: 보이기)
+        <item name="windowActionBar">false</item> // 앱 바 설정(true: 보이기, false: 안 보이기)
+        <item name="android:windowFullscreen">true</item> // 전체 화면 설정(true: 전체 화면 보기, false: 원래대로 보기)
+        <item name="android:windowContentOverlay">@null</item> // 앱 바 그림자 없에기
+    </style>
 </resources>
