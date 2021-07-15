@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             String postParameters = "name=" + name + "&country=" + country;
 
             try {
-
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 

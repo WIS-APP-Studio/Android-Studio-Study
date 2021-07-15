@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         if (user_id==null) {    // 로그아웃 상태
             logon_layout.setVisibility(View.INVISIBLE);
             logoff_layout.setVisibility(View.VISIBLE);
-
         } else {                // 로그인 상태
             logon_layout.setVisibility(View.VISIBLE);
             logoff_layout.setVisibility(View.INVISIBLE);
