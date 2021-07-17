@@ -1,6 +1,7 @@
 package com.example.post;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -8,16 +9,54 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<PostData> postDataList;
+    String TAG = "HOBBING_DBA";
+    String URL = "http://192.168.219.110/hobbing/post/read.php";
+
+    private RequestQueue queue;
+    JSONObject jsonObject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        queue = Volley.newRequestQueue(this);
+        final JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                jsonObject = response;
+                Toast.makeText(MainActivity.this, "실행됨", Toast.LENGTH_SHORT).show();
 
-        this.InitializePostData();
+                loadPost(jsonObject);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG, error.getMessage());
+            }
+        });
+
+        jsonRequest.setTag(TAG);
+        queue.add(jsonRequest);
+
+    }
+
+    public void loadPost(JSONObject jsonObject) {
+        this.InitializePostData(jsonObject);
 
         ListView listView = (ListView)findViewById(R.id.listView);
         final PostAdapter postAdapter = new PostAdapter(this, postDataList);
@@ -34,15 +73,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void InitializePostData()
+    public void InitializePostData(JSONObject jsonObject)
     {
         postDataList = new ArrayList<PostData>();
+        String TAG_JSON = "게시물_정보";
+        String NUM = "번호";
+        String WRITER = "작성자";
+        String CATEGORY = "카테고리";
+        String TITLE = "제목";
+        String DESCRIPTION = "내용";
+        String COUNT_OF_VIEW = "뷰_수";
+        String LIKE = "좋아요";
+        String PERMISSION_TO_COMMENT = "댓글_허용";
+        String PERMISSION_TO_SHARE = "공유_허용";
+        String DATE = "게시일자";
+        String TARGET = "공개_대상";
 
-        postDataList.add(new PostData(R.drawable.image,"안녕 난 제목이야","난 내용이야"));
-        postDataList.add(new PostData(R.drawable.imageimage,"안녕 난 평범한 제목을 가진 게시물이야 ","이 게시물의 내용은 엄청 길어서 한 화면에 다 보이지 않을거야. 그래서 어떻게 할 지 고민중이야 이제쯤 3줄째 되려나 이제 내 글이 보이지 않게 될꺼야 그러면 좋겠어"));
-        postDataList.add(new PostData(R.drawable.ic_launcher_foreground,"안녕 난 대충 긴 제목을 가진 게시물이야 제목이 엄청 길어서 아마 게시물 내용이 많이 보이지 않을꺼야 ","그렇지? 이게 다야. 내용이 한 줄 밖에 안나오네? 하하"));
-        postDataList.add(new PostData(R.drawable.hello,"","난 제목이 없어.. 근데 윗칸은 내가 쓰고싶어도 못 써. 내 자리가 아니야"));
-        postDataList.add(new PostData(R.drawable.s,"슉. 슈슉. 야. 야발럼아.", "슉. 슈슉 야. 야발럼아 슈슉. 슉 슉야. 야벌람아. 슉. 야발. 슈슉 슉. 야. 야발. 슉 럼아 슈슉. 야발. 럼아 슉. 슈슉 슉. 슉 야. 야발럼. 아슉 슈슉 슉. 야벌람아. 슉슉. 슈슉 야. 야발럼아 슈슉. 슉 슉야. 야발럼아. 슉. 야발. 슈슉 슉. 야. 야발. 슉 럼아 슈슉. 야발."));
+        try {
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+            ArrayList<String> result = new ArrayList<>();
+
+            for(int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+                String title = item.getString(TITLE);
+                String description = item.getString(DESCRIPTION);
+
+                postDataList.add(new PostData(title,description));
+            }
+
+        } catch (JSONException e) {
+            Log.d(TAG, "showResult : ", e);
+        };
     }
 
 }

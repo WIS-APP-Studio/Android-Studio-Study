@@ -37,14 +37,15 @@ public class PostAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View converView, ViewGroup parent) {
-        View view = mLayoutInflater.inflate(R.layout.item_list2, null);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = mLayoutInflater.inflate(R.layout.item_list, null);
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageView_image);
         TextView movieName = (TextView)view.findViewById(R.id.textView_list_title);
         TextView grade = (TextView)view.findViewById(R.id.textView_list_description);
 
-        imageView.setImageResource(sample.get(position).getImage());
+//        imageView.setImageResource(sample.get(position).getImage());
+        imageView.setImageResource(R.drawable.image);
         movieName.setText(sample.get(position).getTitle());
         grade.setText(sample.get(position).getDescription());
 
