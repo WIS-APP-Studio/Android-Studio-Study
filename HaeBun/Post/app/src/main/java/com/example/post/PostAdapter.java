@@ -1,6 +1,7 @@
 package com.example.post;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +41,13 @@ public class PostAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = mLayoutInflater.inflate(R.layout.item_list, null);
 
+        TextView writerText = (TextView)view.findViewById(R.id.textView_list_writer);
         ImageView imageView = (ImageView)view.findViewById(R.id.imageView_image);
         TextView movieName = (TextView)view.findViewById(R.id.textView_list_title);
         TextView grade = (TextView)view.findViewById(R.id.textView_list_description);
 
-//        imageView.setImageResource(sample.get(position).getImage());
-        imageView.setImageResource(R.drawable.image);
+        writerText.setText(sample.get(position).getWriter());
+        imageView.setImageResource(R.drawable.test);
         movieName.setText(sample.get(position).getTitle());
         grade.setText(sample.get(position).getDescription());
 

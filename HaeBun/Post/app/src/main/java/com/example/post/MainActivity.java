@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     String URL = "http://192.168.219.110/hobbing/post/read.php";
 
     private RequestQueue queue;
-    JSONObject jsonObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +37,7 @@ public class MainActivity extends AppCompatActivity {
         final JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                jsonObject = response;
-                Toast.makeText(MainActivity.this, "실행됨", Toast.LENGTH_SHORT).show();
-
-                loadPost(jsonObject);
+                loadPost(response);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -49,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, error.getMessage());
             }
         });
-
         jsonRequest.setTag(TAG);
         queue.add(jsonRequest);
-
     }
 
     public void loadPost(JSONObject jsonObject) {
@@ -62,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         final PostAdapter postAdapter = new PostAdapter(this, postDataList);
 
         listView.setAdapter(postAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id){
@@ -77,32 +70,30 @@ public class MainActivity extends AppCompatActivity {
     {
         postDataList = new ArrayList<PostData>();
         String TAG_JSON = "게시물_정보";
-        String NUM = "번호";
+//        String NUM = "번호";
         String WRITER = "작성자";
-        String CATEGORY = "카테고리";
+//        String CATEGORY = "카테고리";
         String TITLE = "제목";
         String DESCRIPTION = "내용";
-        String COUNT_OF_VIEW = "뷰_수";
-        String LIKE = "좋아요";
-        String PERMISSION_TO_COMMENT = "댓글_허용";
-        String PERMISSION_TO_SHARE = "공유_허용";
-        String DATE = "게시일자";
-        String TARGET = "공개_대상";
+//        String COUNT_OF_VIEW = "뷰_수";
+//        String LIKE = "좋아요";
+//        String PERMISSION_TO_COMMENT = "댓글_허용";
+//        String PERMISSION_TO_SHARE = "공유_허용";
+//        String DATE = "게시일자";
+//        String TARGET = "공개_대상";
 
         try {
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
-            ArrayList<String> result = new ArrayList<>();
-
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
+                String writer = item.getString(WRITER);
                 String title = item.getString(TITLE);
                 String description = item.getString(DESCRIPTION);
 
-                postDataList.add(new PostData(title,description));
+                postDataList.add(new PostData(writer,title,description));
             }
-
         } catch (JSONException e) {
-            Log.d(TAG, "showResult : ", e);
+            Log.d(TAG, e.toString());
         };
     }
 
